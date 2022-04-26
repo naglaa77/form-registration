@@ -6,48 +6,75 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registartion Form</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
-    <form action="" name="form">
+    <form action="" name="form" class="form" id="form">
         <h2>Registration Form</h2>
         <div class="box">
-            <div class="my-input">
-                <label for="#name">Full Name : </label>
+            <div class="my-input ">
+                <label for="name">Full Name : </label>
                 <input type="text" name="name" id="name" placeholder="nom prenome">
+                <i class="fa-solid fa-check"></i>
+                <i class="fa-solid fa-circle-exclamation"></i>
+                <small id="nom">Error messge</small>
             </div>
-            <div class="error" id ="nameErr"> invalid number </div>
         </div>
         <div class="box">
             <div class="my-input">
-                <label for="#email">Email</label>
+                <label for="email">Email</label>
                 <input type="text" name="email" id="email" placeholder="Email">
+                <i class="fa-solid fa-check"></i>
+                <i class="fa-solid fa-circle-exclamation"></i>
+                <small id="mail">Error messge</small>
             </div>
-            <div class="error" id ="emailErr"></div>
         </div>
         <div class="box">
             <div class="my-input">
-                <label for="#mobile">Mobile Number</label>
-                <input type="text" name="mobile" id="mobile" placeholder="mpbile">
+                <label for="password">Password</label>
+                <input type="password" name="password" id="password" placeholder="password">
+                <i class="fa-solid fa-check"></i>
+                <i class="fa-solid fa-circle-exclamation"></i>
+                <small id="pass">Error messge</small>
             </div>
-            <div class="error" id ="mobileErr"></div>
         </div>
         <div class="box">
-            <label for="#name">Gendre</label>
+            <div class="my-input">
+                <label for="confirmpassword">Confirm Password</label>
+                <input type="password" name="confirmpassword" id="confirmpassword" placeholder="confirm password">
+                <i class="fa-solid fa-check"></i>
+                <i class="fa-solid fa-circle-exclamation"></i>
+                <small id="conpass">Error messge</small>
+            </div>
+        </div>
+        <div class="box">
+            <div class="my-input">
+                <label for="mobile">Mobile Number</label>
+                <input type="text" name="mobile" id="mobile" placeholder="mobile number">
+                <i class="fa-solid fa-check"></i>
+                <i class="fa-solid fa-circle-exclamation"></i>
+                <small id="mob">Error messge</small>
+            </div>
+        </div>
+        <div class="box">
+            <label for="">Gendre</label>
             <div class="form-inline">
                 <label for=""><input type="radio" name="gender" value="Homme"> Homme</label>
                 <label for=""><input type="radio" name="gender" value="Femme"> Femme</label>
+                <small>Error messge</small>
             </div>
-            <div class="error" id ="genderErr"></div>
         </div>
         <div class="box">
             <div class="my-input">
-                <label for="#name">date de naissance</label>
-                <input type="text" name="naissance" id="naissance" placeholder="naissance">
+                <label for="birthday">Birthday:</label>
+                <input type="date" id="birthday" name="birthday" placeholder="birthday">
+                <i class="fa-solid fa-check"></i>
+                <i class="fa-solid fa-circle-exclamation"></i>
+                <small>Error messge</small>
             </div>
-            <div class="error" id ="naissanceErr"></div>
         </div>
         <div class="box">
-            <input type="submit" value="submit">
+           <button id="button">Submit</button>
         </div>
     </form>
     <script src="js/main.js"></script>

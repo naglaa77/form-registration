@@ -6,7 +6,7 @@
 }
 
 body {
-  background-color: #f1e7ed;
+  background-color: #5853561c;
   height: 100vh;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -37,16 +37,24 @@ form {
       -ms-flex-direction: column;
           flex-direction: column;
   width: 400px;
+  max-width: 100%;
   margin: auto;
-  border: 1px solid black;
+  border: 1px solid #f1eaea;
   padding: 2em 1em;
   background-color: white;
+  -webkit-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+          box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
 }
 
 form h2 {
   color: black;
   margin: 1em;
   text-align: center;
+  background: #efdee8;
+  width: 100%;
+  margin: auto;
+  padding: 1rem;
+  margin-bottom: 2rem;
 }
 
 form .box {
@@ -55,6 +63,29 @@ form .box {
 
 form .box .my-input {
   margin-bottom: 1em;
+  position: relative;
+}
+
+form .box .my-input.success input {
+  border-color: #2ecc71;
+}
+
+form .box .my-input.success i.fa-check {
+  visibility: visible;
+  color: #2ecc71;
+}
+
+form .box .my-input.error input {
+  border-color: #e74c3c;
+}
+
+form .box .my-input.error i.fa-circle-exclamation {
+  visibility: visible;
+  color: #e74c3c;
+}
+
+form .box .my-input.error small {
+  visibility: visible;
 }
 
 form .box .my-input label {
@@ -70,14 +101,20 @@ form .box .my-input input {
   border-radius: 5px;
 }
 
-form .box .error {
-  width: 100%;
-  text-align: center;
-  border: 1px solid #e5dbdb;
-  margin-bottom: 1em;
-  padding: 0.5em 0.5em;
-  font-size: .7rem;
-  display: none;
+form .box .my-input i {
+  position: absolute;
+  top: 2rem;
+  right: 1rem;
+  visibility: hidden;
+}
+
+form .box .my-input small {
+  visibility: hidden;
+  position: absolute;
+  bottom: -27px;
+  right: 0;
+  padding: 0.5rem;
+  color: #e74c3c;
 }
 
 form .box .form-inline {
@@ -89,15 +126,16 @@ form .box .form-inline {
   margin: 1em;
 }
 
-form .box input[type="submit"] {
+form .box button {
   width: 100%;
-  background-color: black;
-  color: #fff;
+  background-color: #efdee8;
+  color: black;
   padding: 1em .9em;
   border: none;
   outline: none;
   border-radius: 5px;
   font-size: 1rem;
   font-weight: bold;
+  cursor: pointer;
 }
 /*# sourceMappingURL=style.css.map */

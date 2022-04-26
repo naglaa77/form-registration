@@ -4,7 +4,7 @@
     box-sizing: border-box;
 }
 body {
-    background-color: #f1e7ed;
+    background-color: #5853561c;
     height: 100vh;
     display: flex;
     justify-content: center;
@@ -19,19 +19,48 @@ form {
     flex-wrap: wrap;
     flex-direction: column;
     width: 400px;
+    max-width: 100%;
     margin: auto;
-    border: 1px solid black;
+    border: 1px solid rgb(241, 234, 234);
     padding: 2em 1em;
     background-color: white;
+    box-shadow: 0 2px 5px rgba(0,0,0,.3);
     h2 {
         color: black;
         margin: 1em;
         text-align: center;
+        background: #efdee8;
+        width: 100%;
+        margin: auto;
+        padding: 1rem;
+        margin-bottom: 2rem;
     }
     .box {
         width: 80%;
         .my-input {
             margin-bottom: 1em;
+            position: relative;
+            &.success {
+                input {
+                    border-color: #2ecc71;
+                }
+                i.fa-check {
+                    visibility: visible;
+                    color: #2ecc71;
+                }
+            }
+            &.error {
+                input {
+                    border-color: #e74c3c;
+                }
+                i.fa-circle-exclamation {
+                    visibility: visible;
+                    color: #e74c3c;
+                }
+                small {
+                    visibility: visible;
+                }
+            }
             label {
                 font-size: .8rem;
                 display: block;
@@ -43,15 +72,20 @@ form {
                 width: 100%;
                 border-radius: 5px;
             }
-        }
-        .error {
-            width: 100%;
-            text-align: center;
-            border: 1px solid #e5dbdb;
-            margin-bottom: 1em;
-            padding: 0.5em 0.5em;
-            font-size: .7rem;
-            display: none;
+            i {
+                position: absolute;
+                top: 2rem;
+                right: 1rem;
+                visibility: hidden;
+            }
+            small {
+                visibility: hidden;
+                position: absolute;
+                bottom: -27px;
+                right: 0;
+                padding: 0.5rem;
+                color: #e74c3c;
+            }
         }
         .form-inline {
             display: flex;
@@ -59,16 +93,17 @@ form {
             margin: 1em;
 
         }
-        input[type="submit"] {
+        button{
             width: 100%;
-            background-color: black;
-            color: #fff;
+            background-color: #efdee8;
+            color: black;
             padding: 1em .9em;
             border: none;
             outline: none;
             border-radius: 5px;
             font-size: 1rem;
             font-weight: bold;
+            cursor: pointer;
         }
     }
 }
