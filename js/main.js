@@ -4,10 +4,10 @@ let email = document.getElementById('email');
 let passWord = document.getElementById('password');
 let confirmPassword = document.getElementById('confirmpassword');
 let mobile = document.getElementById('mobile');
-let gender =document.querySelectorAll('input[name="gender"]');
+let genderH =document.querySelector('#homme');
+let genderF = document.querySelector('#femme');
 let birthday = document.getElementById('birthday');
 let submit = document.getElementById('button');
-console.log(form);
 
 form.addEventListener('submit', (e) => {
 
@@ -23,14 +23,24 @@ function checkInputs() {
    const passwordValue =  passWord.value.trim();
    const conpasswordValue = confirmPassword.value.trim();
    const mobilValue = mobile.value.trim();
+   const yourBirth = birthday.value;
 
+    
     // for username
+    let user_reg = /^[a-zA-Z ]*$/;
    if (usernameValue === '') {
     setErrorFor(userName);
     let smalluser =  document.querySelector('.my-input #nom');
     smalluser.textContent = "you should write  your name "
-   }else {
-       setSuccessFor(userName);
+   }
+   else if (user_reg.test(usernameValue)) {
+    setSuccessFor(userName);
+
+   } else {
+    setErrorFor(userName);
+    let smalluser =  document.querySelector('.my-input #nom');
+    smalluser.textContent = "you should use characters only ";
+        
    }
 
    // for email
@@ -51,6 +61,9 @@ function checkInputs() {
     }
 
     //for password
+
+    let regex_pass = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/; // Minimum eight characters, at least one uppercase letter, one lowercase letter, one number and one special character:
+
     if (passwordValue === '') {
         setErrorFor(passWord);
         let smallemail =  document.querySelector('.my-input #pass');
@@ -87,7 +100,35 @@ function checkInputs() {
         let smallemail =  document.querySelector('.my-input #mob');
         smallemail.textContent = "number is not valid";
     }
-    
+
+    //birthday
+
+    if (yourBirth === '' || yourBirth === 'null') {
+        setErrorFor(birthday);
+        let smallbirth = document.querySelector('.my-input #brthDay');
+        smallbirth.textContent = "you should enter your birthday"
+    } else {
+        let birth_day = new Date(yourBirth);
+        let birth_day_year = birth_day.getFullYear();
+
+        let today_date = new Date();
+        let today_year = today_date.getFullYear();
+
+        let calculate_age = 0;
+        calculate_age = today_year - birth_day_year;
+
+        if (calculate_age < 18) {
+            setErrorFor(birthday);
+            let smallbirth = document.querySelector('.my-input #brthDay');
+            smallbirth.textContent = "you should have at least 18";
+
+        } else {
+            setSuccessFor(birthday);
+        }
+        
+    }
+
+
 }
 
 function setErrorFor(input) {
@@ -104,13 +145,6 @@ function setSuccessFor(input) {
     myInputParent.className = 'my-input success';
 }
 
-
-// for check email in good form
-// function isEmail (email) {
-
-//     const regex = /^([\.\_a-zA-Z0-9]+)@([a-zA-Z]+)\.([a-zA-Z]){2,8}$/
-//     const regexo = /^([\.\_a-zA-Z0-9]+)@([a-zA-Z]+)\.([a-zA-Z]){2,3}\.[a-zA-Z]{2,3}$/
-// }
 /*
  
  ^ => match begining of input == /^A/ does not match the "A" in "an A", but does match the first "A" in "An A".

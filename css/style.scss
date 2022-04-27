@@ -2,6 +2,7 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    outline: none;
 }
 body {
     background-color: #5853561c;
@@ -38,7 +39,7 @@ form {
     .box {
         width: 80%;
         .my-input {
-            margin-bottom: 1em;
+            margin-bottom: 2em;
             position: relative;
             &.success {
                 input {
@@ -75,7 +76,7 @@ form {
             i {
                 position: absolute;
                 top: 2rem;
-                right: 1rem;
+                right: 2rem;
                 visibility: hidden;
             }
             small {
@@ -85,13 +86,15 @@ form {
                 right: 0;
                 padding: 0.5rem;
                 color: #e74c3c;
+                &#brthDay {
+                    // margin-bottom: -2rem;
+                }
             }
-        }
-        .form-inline {
-            display: flex;
-            justify-content: space-around;
-            margin: 1em;
-
+            &.form-inline {
+                display: flex;
+                justify-content: space-around;
+                margin: 1rem;
+            }
         }
         button{
             width: 100%;

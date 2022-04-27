@@ -3,6 +3,7 @@
   margin: 0;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
+  outline: none;
 }
 
 body {
@@ -62,7 +63,7 @@ form .box {
 }
 
 form .box .my-input {
-  margin-bottom: 1em;
+  margin-bottom: 2em;
   position: relative;
 }
 
@@ -104,7 +105,7 @@ form .box .my-input input {
 form .box .my-input i {
   position: absolute;
   top: 2rem;
-  right: 1rem;
+  right: 2rem;
   visibility: hidden;
 }
 
@@ -117,13 +118,13 @@ form .box .my-input small {
   color: #e74c3c;
 }
 
-form .box .form-inline {
+form .box .my-input.form-inline {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -ms-flex-pack: distribute;
       justify-content: space-around;
-  margin: 1em;
+  margin: 1rem;
 }
 
 form .box button {
