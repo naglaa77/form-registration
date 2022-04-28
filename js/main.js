@@ -101,6 +101,16 @@ function checkInputs() {
         smallemail.textContent = "number is not valid";
     }
 
+    // for gender
+
+    if (genderH.checked == false && genderF.checked == false) {
+        
+        let smallgender =  document.querySelector('.box .erro-genre');
+        smallgender.style.display = "block";
+        smallgender.textContent = "you should chose";
+
+    }
+
     //for birthday
 
     if (yourBirth === '' || yourBirth === 'null') {
@@ -109,18 +119,43 @@ function checkInputs() {
         smallbirth.textContent = "you should enter your birthday"
     } else {
         let birth_day = new Date(yourBirth);
+        let birth_day_day = birth_day.getDate();
+        let birth_day_month = birth_day.getMonth();
         let birth_day_year = birth_day.getFullYear();
 
         let today_date = new Date();
+        let today_day = today_date.getDate();
+        let today_month = today_date.getMonth();
         let today_year = today_date.getFullYear();
 
         let calculate_age = 0;
-        calculate_age = today_year - birth_day_year;
 
-        if (calculate_age < 18) {
+        if (today_month > birth_day_month) {
+
+            calculate_age = today_year - birth_day_year;
+
+        } else if(today_month == birth_day_month) {
+
+            if (today_day >= birth_day_day) {
+
+                calculate_age = today_year - birth_day_year;
+
+            }else {
+
+                calculate_age = today_year - birth_day_year - 1;
+            }
+
+        } else {
+
+            calculate_age = today_year - birth_day_year - 1;
+
+        }
+        
+
+        if (calculate_age < 21) {
             setErrorFor(birthday);
             let smallbirth = document.querySelector('.my-input #brthDay');
-            smallbirth.textContent = "you should have at least 18";
+            smallbirth.textContent = "you should have at least 21";
 
         } else {
             setSuccessFor(birthday);

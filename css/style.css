@@ -116,6 +116,7 @@ form .box .my-input small {
   right: 0;
   padding: 0.5rem;
   color: #e74c3c;
+  font-size: .8rem;
 }
 
 form .box .my-input.form-inline {
@@ -124,7 +125,14 @@ form .box .my-input.form-inline {
   display: flex;
   -ms-flex-pack: distribute;
       justify-content: space-around;
-  margin: 1rem;
+  margin: .4rem;
+}
+
+form .box .erro-genre {
+  display: none;
+  color: #e74c3c;
+  margin-bottom: 0.5rem;
+  font-size: .8rem;
 }
 
 form .box button {

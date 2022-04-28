@@ -86,15 +86,19 @@ form {
                 right: 0;
                 padding: 0.5rem;
                 color: #e74c3c;
-                &#brthDay {
-                    // margin-bottom: -2rem;
-                }
+                font-size: .8rem;
             }
             &.form-inline {
                 display: flex;
                 justify-content: space-around;
-                margin: 1rem;
+                margin: .4rem;
             }
+        }
+        .erro-genre {
+            display: none;
+            color: #e74c3c;
+            margin-bottom: 0.5rem;
+            font-size: .8rem;
         }
         button{
             width: 100%;
