@@ -86,7 +86,7 @@ function checkInputs() {
         setSuccessFor(confirmPassword);
     }
 
-    //check mobil number
+    //for check mobil number
     const regexn = /^[0-9]{10}$/;
     if (mobilValue === '') {
         setErrorFor(mobile);
@@ -101,7 +101,7 @@ function checkInputs() {
         smallemail.textContent = "number is not valid";
     }
 
-    //birthday
+    //for birthday
 
     if (yourBirth === '' || yourBirth === 'null') {
         setErrorFor(birthday);
@@ -131,6 +131,7 @@ function checkInputs() {
 
 }
 
+//for error
 function setErrorFor(input) {
 
     const myInputParent = input.parentElement;    
@@ -139,6 +140,7 @@ function setErrorFor(input) {
 
 }
 
+// for success
 function setSuccessFor(input) {
 
     const myInputParent = input.parentElement;
@@ -156,5 +158,9 @@ function setSuccessFor(input) {
  . => period matches any single character
  {} => {n,m}. This means at least n, and at most m repetitions of the pattern left to it.
 
-
+ (?=.*[a-z]) => one lowercase letter
+ (?=.*[A-Z]) => one uppercase letter
+ (?=.*\d)    => one number
+(?=.*[@$!%*?&]) => one special character
+{8,} => Minimum eight characters
  */
