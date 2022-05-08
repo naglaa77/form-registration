@@ -109,6 +109,10 @@ function checkInputs() {
         smallgender.style.display = "block";
         smallgender.textContent = "you should chose";
 
+    } else {
+
+        let smallgender =  document.querySelector('.box .erro-genre');
+        smallgender.style.display = "none";
     }
 
     //for birthday
