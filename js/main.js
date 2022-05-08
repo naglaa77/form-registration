@@ -27,19 +27,25 @@ function checkInputs() {
 
     
     // for username
-    let user_reg = /^[a-zA-Z ]*$/;
+    let user_reg = /^[a-zA-Z ]{3,15}$/;
    if (usernameValue === '') {
     setErrorFor(userName);
     let smalluser =  document.querySelector('.my-input #nom');
-    smalluser.textContent = "you should write  your name "
-   }
-   else if (user_reg.test(usernameValue)) {
-    setSuccessFor(userName);
+    smalluser.textContent = "you should write  your name ";
 
-   } else {
+   }else if(usernameValue.toLowerCase() == "root" || usernameValue.toLowerCase() == "afpa" || usernameValue.toLowerCase() == "deus"){
+
     setErrorFor(userName);
     let smalluser =  document.querySelector('.my-input #nom');
-    smalluser.textContent = "you should use characters only ";
+    smalluser.textContent = "you should not write these words ";
+
+   } else if (user_reg.test(usernameValue)) {
+    setSuccessFor(userName);
+
+   }else {
+    setErrorFor(userName);
+    let smalluser =  document.querySelector('.my-input #nom');
+    smalluser.textContent = "use characters only min length 3, max length 15 ";
         
    }
 
@@ -62,14 +68,20 @@ function checkInputs() {
 
     //for password
 
-    let regex_pass = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/; // Minimum eight characters, at least one uppercase letter, one lowercase letter, one number and one special character:
+    let regex_pass = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,15}$/; // Minimum eight characters, at least one uppercase letter, one lowercase letter, one number and one special character:
 
     if (passwordValue === '') {
         setErrorFor(passWord);
         let smallemail =  document.querySelector('.my-input #pass');
         smallemail.textContent = "password can not be blank";
-    }else {
+    }else if (regex_pass.test(passwordValue)) {
+        
         setSuccessFor(passWord);
+
+    }else {
+        setErrorFor(passWord);
+        let smallemail =  document.querySelector('.my-input #pass');
+        smallemail.textContent = "password 1char min mus,1 digit,special char";
     }
 
     //for confirm password
