@@ -52,12 +52,17 @@ function checkInputs() {
    // for email
    const regex = /^([\.\_a-zA-Z0-9]+)@([a-zA-Z]+)\.([a-zA-Z]){2,8}$/
    const regexo = /^([\.\_a-zA-Z0-9]+)@([a-zA-Z]+)\.([a-zA-Z]){2,3}\.[a-zA-Z]{2,3}$/
-
    if (emailValue === '') {
         setErrorFor(email);
         let smallemail =  document.querySelector('.my-input #mail');
         smallemail.textContent = "Email can not be blank ";
-    }else if (regex.test(emailValue) || regexo.test(emailValue)) {
+    } else if (emailValue.toLowerCase() == "root@afpa.fr" || emailValue.toLowerCase() == "afpa@afpa.com" || emailValue.toLowerCase() == "deus@afpa.org") {
+
+        setErrorFor(email);
+        let smallemail =  document.querySelector('.my-input #mail');
+        smallemail.textContent = "This email is block";
+
+    } else if (regex.test(emailValue) || regexo.test(emailValue)) {
         setSuccessFor(email);
 
     } else {
@@ -65,6 +70,7 @@ function checkInputs() {
         let smallemail =  document.querySelector('.my-input #mail');
         smallemail.textContent = "email is not valid";
     }
+    
 
     //for password
 
@@ -84,7 +90,9 @@ function checkInputs() {
         smallemail.textContent = "password 1char min mus,1 digit,special char";
     }
 
+
     //for confirm password
+
     if (conpasswordValue === '') {
         setErrorFor(confirmPassword);
         let smallemail =  document.querySelector('.my-input #conpass');
